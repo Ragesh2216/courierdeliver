@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogs & Journal - Stackly Cargo & Logistics</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- PRELOADER (1.5 SECONDS) -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-spinner"></div>
+      <div class="preloader-logo">
+        <img src="logo_0970.webp" alt="Stackly Logistics" class="site-logo" style="height: 46px;">
+      </div>
+      <p class="preloader-text">Loading Stackly Journal...</p>
+    </div>
+  </div>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="logo_0970.webp" alt="Stackly Logistics" class="site-logo">
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="about.html" class="nav-link">About us</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="blogs.html" class="nav-link active">Blogs</a></li>
+        <li class="nav-signin-mobile"><a href="login.html" class="btn-signin">Sign in <span>↗</span></a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-signin nav-signin-desktop">
+          Sign in <span>↗</span>
+        </a>
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- TOP / HERO SECTION -->
+    <section class="service-sec bg-mint" style="padding-top: 3rem; padding-bottom: 2rem;">
+      <div class="container">
+        <span class="section-num-label"><i class="fa-regular fa-bookmark"></i> STACKLY JOURNAL</span>
+        <h1 class="service-heading" style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 0.75rem;">Ideas in motion.</h1>
+        <p class="service-lead-text" style="max-width: 520px; margin-bottom: 0;">Notes from the road, the skies and everywhere in between.</p>
+        <div style="border-bottom: 1px solid rgba(0,0,0,0.08); margin-top: 2.5rem;"></div>
+      </div>
+    </section>
+
+    <!-- 01 / ROAD • INSIGHT -->
+    <section class="service-sec bg-mint" style="padding-top: 2rem;">
+      <div class="container">
+        <div class="service-grid-2col" style="gap: 4rem;">
+          <div>
+            <div class="service-img-card">
+              <img src="images/blog_road.webp" alt="Courier Scanning Parcel at Van" width="800" height="600" loading="eager">
+            </div>
+          </div>
+          <div>
+            <span class="section-num-label"><i class="fa-solid fa-truck"></i> 01 / ROAD • INSIGHT</span>
+            <h2 class="service-heading">Why the first mile<br>matters.</h2>
+            <p class="service-lead-text">A well-planned pickup sets the tone for everything that follows. The journey starts long before a parcel reaches the road.</p>
+
+            <div class="service-checklist">
+              <div class="service-checklist-item"><span>✓</span> Plan the handoff</div>
+              <div class="service-checklist-item"><span>✓</span> Prepare the parcel</div>
+              <div class="service-checklist-item"><span>✓</span> Keep the details clear</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 / AIR • INSIGHT -->
+    <section class="service-sec bg-mint">
+      <div class="container">
+        <div class="service-grid-2col reversed" style="gap: 4rem;">
+          <div>
+            <div class="service-img-card">
+              <img src="images/blog_air.webp" alt="Ground Marshaller Guiding Cargo Jet" width="900" height="500" loading="lazy">
+            </div>
+          </div>
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <span class="section-num-label"><i class="fa-solid fa-plane"></i> 02 / AIR • INSIGHT</span>
+              <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 1.5px; opacity: 0.6;">JOURNAL NOTE</span>
+            </div>
+            <h2 class="service-heading">Choosing speed<br>with purpose.</h2>
+            <p class="service-lead-text">Fast is most useful when it serves a real need. Knowing when to choose air freight helps align timing with the shipment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 / OCEAN • INSIGHT -->
+    <section class="service-sec bg-dark">
+      <div class="container">
+        <div class="service-grid-2col" style="gap: 4rem;">
+          <div>
+            <div class="service-img-card">
+              <img src="images/blog_ocean.webp" alt="Ocean Container Vessel" width="800" height="500" loading="lazy">
+            </div>
+          </div>
+          <div>
+            <span class="section-num-label dark-theme"><i class="fa-solid fa-ship"></i> 03 / OCEAN • INSIGHT</span>
+            <h2 class="service-heading">Thinking bigger<br>across borders.</h2>
+            <p class="service-lead-text">Larger shipments bring more moving parts. A considered ocean route turns a complex journey into a coordinated one.</p>
+            <div style="margin-top: 1.5rem; color: var(--color-primary-teal); font-size: 1.8rem;">
+              <i class="fa-solid fa-earth-americas"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 / LAST MILE • IDEAS -->
+    <section class="service-sec bg-mint">
+      <div class="container">
+        <div class="service-grid-2col reversed" style="gap: 4rem;">
+          <div>
+            <div class="service-img-card">
+              <img src="images/blog_locker.webp" alt="Courier Using Parcel Locker Station" width="600" height="750" loading="lazy">
+            </div>
+          </div>
+          <div>
+            <span class="section-num-label"><i class="fa-solid fa-box-open"></i> 04 / LAST MILE • IDEAS</span>
+            <h2 class="service-heading">What comes<br>after the hub?</h2>
+            <p class="service-lead-text">The final stretch shapes the delivery experience. New approaches make that moment more connected and thoughtful.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 / RAIL • INSIGHT -->
+    <section class="service-sec bg-teal">
+      <div class="container">
+        <span class="section-num-label teal-theme"><i class="fa-solid fa-train"></i> 05 / RAIL • INSIGHT</span>
+        <h2 class="service-heading" style="margin-bottom: 2rem;">A connected network in motion.</h2>
+
+        <div class="service-img-card" style="margin-bottom: 2.5rem; max-height: 480px;">
+          <img src="images/blog_rail.webp" alt="Freight Train Crossing Bridge Over River" width="1200" height="500" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+
+        <div class="road-freight-header" style="margin-bottom: 0;">
+          <div>
+            <p class="service-lead-text" style="margin-bottom: 0;">Rail connects important hubs and adds another choice to the transport mix. The best journey is often built from more than one mode.</p>
+          </div>
+          <div style="text-align: right;">
+            <a href="404.html" class="btn-underline-link">Explore our services ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+      <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top-bar">
+        <a href="index.html" class="logo">
+          <img src="logo_0970.webp" alt="Stackly Logistics" class="site-logo">
+        </a>
+
+        <div class="social-links">
+          <a href="404.html" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="404.html" class="social-icon" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="404.html" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="404.html" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="404.html" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-grid-4col">
+        <div>
+          <div class="footer-col-title">Stackly</div>
+          <p class="footer-col-text">Moving what matters, wherever it needs to go.</p>
+          <a href="contact.html" class="footer-connect-link">📍 Connect with us</a>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Explore</div>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links-list">
+            <li><a href="404.html">Road Freight</a></li>
+            <li><a href="404.html">Ocean Freight</a></li>
+            <li><a href="404.html">Air Freight</a></li>
+            <li><a href="404.html">Drone Delivery</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-contact-item">hello@stackly.com</div>
+          <a href="contact.html" class="footer-connect-link">Get in touch →</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>© 2026 Stackly. All rights reserved.</p>
+        <a href="#" class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to top ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL POPUP -->
+  <div class="modal-overlay" id="quoteModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="closeQuoteModal">&times;</button>
+      <h3 class="modal-title">Get a Shipping Quote</h3>
+      <form class="modal-form" id="quoteForm">
+        <div class="form-group">
+          <label for="quoteName">Full Name</label>
+          <input type="text" id="quoteName" class="form-control" placeholder="John Doe" required>
+        </div>
+        <button type="submit" class="btn-modal-submit">Request Quote ↗</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Stackly Cargo & Freight Logistics</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- PRELOADER (1.5 SECONDS) -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-spinner"></div>
+      <div class="preloader-logo">
+        <img src="logo_0970.webp" alt="Stackly Logistics" class="site-logo" style="height: 46px;">
+      </div>
+      <p class="preloader-text">Loading Cargo Services...</p>
+    </div>
+  </div>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="logo_0970.webp" alt="Stackly Logistics" class="site-logo">
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link active">Services</a></li>
+        <li><a href="about.html" class="nav-link">About us</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="blogs.html" class="nav-link">Blogs</a></li>
+        <li class="nav-signin-mobile"><a href="login.html" class="btn-signin">Sign in <span>↗</span></a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-signin nav-signin-desktop">
+          Sign in <span>↗</span>
+        </a>
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO BANNER -->
+    <section class="service-hero-banner">
+      <div class="service-hero-overlay"></div>
+      <div class="container">
+        <div class="service-hero-content">
+        
+          <h1 class="service-hero-title">Courier & freight<br>services.</h1>
+          <p class="service-hero-desc">The right route. The right care. From the first mile to the final handoff.</p>
+          <a href="404.html" class="btn-hero-talk">Let's talk ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 01: ROAD FREIGHT -->
+    <section class="service-sec bg-mint">
+      <div class="container">
+        <div class="road-freight-header">
+          <div>
+            <span class="section-num-label"><i class="fa-solid fa-route"></i> 01 / ROAD FREIGHT</span>
+            <h2 class="service-heading">Built for the road ahead.</h2>
+          </div>
+          <div>
+            <p class="service-lead-text">Flexible ground transport connects local pickups to regional destinations.</p>
+          </div>
+        </div>
+
+        <div class="service-img-card">
+          <img src="images/road_freight.webp" alt="Road Freight Truck" width="1200" height="600" loading="lazy">
+        </div>
+
+        <div class="road-features-bar">
+          <div class="road-feature-item">
+            <i class="fa-solid fa-truck"></i>
+            <span>Regional distribution</span>
+          </div>
+          <div class="road-feature-item">
+            <i class="fa-solid fa-box"></i>
+            <span>Scheduled collection</span>
+          </div>
+          <div class="road-feature-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Door-to-door coordination</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02: OCEAN FREIGHT -->
+    <section class="service-sec bg-dark">
+      <div class="container">
+        <div class="service-grid-2col">
+          <div>
+            <span class="section-num-label"><i class="fa-solid fa-ship"></i> 02 / OCEAN FREIGHT</span>
+            <h2 class="service-heading">A bigger world.<br>Room to move.</h2>
+            <p class="service-lead-text">For larger shipments and longer distances, ocean freight offers the scale to move cargo across borders.</p>
+            <div class="service-checklist">
+              <div class="service-checklist-item"><span>✓</span> Container shipping</div>
+              <div class="service-checklist-item"><span>✓</span> International reach</div>
+              <div class="service-checklist-item"><span>✓</span> Coordinated handoffs</div>
+            </div>
+          </div>
+          <div>
+            <div class="service-img-card">
+              <img src="images/ocean_freight.webp" alt="Ocean Freight Container Ship" width="800" height="500" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 03: AIR FREIGHT -->
+    <section class="service-sec bg-mint">
+      <div class="container">
+        <div class="service-grid-2col reversed">
+          <div>
+            <div class="service-img-card">
+              <img src="images/air_freight.webp" alt="Air Freight Cargo Jet" width="800" height="500" loading="lazy">
+            </div>
+          </div>
+          <div>
+            <span class="section-num-label"><i class="fa-solid fa-plane"></i> 03 / AIR FREIGHT</span>
+            <h2 class="service-heading">When every mile matters.</h2>
+            <p class="service-lead-text">Air transport brings speed and care together for time-sensitive cargo.</p>
+            <div class="service-checklist">
+              <div class="service-checklist-item"><span>✓</span> Priority routing</div>
+              <div class="service-checklist-item"><span>✓</span> Long-distance movement</div>
+              <div class="service-checklist-item"><span>✓</span> Careful handling</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04: LAST MILE -->
+    <section class="service-sec bg-teal">
+      <div class="container">
+        <div class="service-grid-2col reversed">
+          <div>
+            <div class="service-img-card">
+              <img src="images/last_mile.webp" alt="Last Mile Parcel Delivery" width="800" height="500" loading="lazy">
+            </div>
+          </div>
+          <div>
+            <span class="section-num-label"><i class="fa-solid fa-box-open"></i> 04 / LAST MILE</span>
+            <h2 class="service-heading">The final mile.<br>A personal touch.</h2>
+            <p class="service-lead-text">The final stretch deserves just as much attention. A clear, reliable handoff right to your doorstep.</p>
+            <div class="service-checklist">
+              <div class="service-checklist-item"><span>✓</span> Doorstep parcel handoffs</div>
+              <div class="service-checklist-item"><span>✓</span> Real-time recipient tracking</div>
+              <div class="service-checklist-item"><span>✓</span> Flexible collection windows</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 05: RAIL TRANSPORT -->
+    <section class="service-sec bg-mint">
+      <div class="container">
+        <div class="service-grid-2col">
+          <div>
+            <span class="section-num-label"><i class="fa-solid fa-train"></i> 05 / RAIL TRANSPORT</span>
+            <h2 class="service-heading">Connected by rail.</h2>
+            <p class="service-lead-text">Move larger volumes between key hubs with another useful connection in a well-planned network.</p>
+            <div class="service-checklist">
+              <div class="service-checklist-item"><span>✓</span> High-volume corridor transit</div>
+              <div class="service-checklist-item"><span>✓</span> Low-emission freight rail</div>
+              <div class="service-checklist-item"><span>✓</span> Intermodal terminal transfer</div>
+            </div>
+          </div>
+          <div>
+            <div class="service-img-card">
+              <img src="images/rail_transport.webp" alt="Freight Train Transport" width="800" height="500" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 06: SMALL PARCELS & FULFILLMENT -->
+    <section class="service-sec bg-teal">
+      <div class="container">
+        <div class="service-grid-2col">
+          <div>
+            <span class="section-num-label"><i class="fa-solid fa-cubes"></i> 06 / SMALL PARCELS & FULFILLMENT</span>
+            <h2 class="service-heading">Small parcels.<br>Global network.</h2>
+            <p class="service-lead-text">E-commerce dispatch, express courier routing, and automated parcel sorting hubs for frictionless delivery.</p>
+            <div class="service-checklist">
+              <div class="service-checklist-item"><span>✓</span> Automated sorting hubs</div>
+              <div class="service-checklist-item"><span>✓</span> Express dispatch routing</div>
+              <div class="service-checklist-item"><span>✓</span> Smart barcode telemetry</div>
+            </div>
+          </div>
+          <div>
+            <div class="service-img-card">
+              <img src="images/small_parcel.webp" alt="Small Parcel Sorting Warehouse" width="800" height="500" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: COMPARE MODES AT A GLANCE -->
+    <section class="service-sec bg-mint">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem;">
+          <div>
+            <span class="section-num-label">COMPARE</span>
+            <h2 class="service-heading" style="margin-bottom: 0;">Which route fits your<br>shipment?</h2>
+          </div>
+          <div style="text-align: right; max-width: 450px;">
+            <p class="service-lead-text" style="margin-bottom: 0;">Every mode of transport has its strengths. Compare the options side by side, then read the detail behind each one.</p>
+            <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.6; display: inline-block; margin-top: 1rem;">5 MODES AT A GLANCE</span>
+          </div>
+        </div>
+
+        <div class="compare-modes-grid">
+          <!-- Road -->
+          <div class="compare-card">
+            <div>
+              <div class="compare-card-icon"><i class="fa-solid fa-truck"></i></div>
+              <h3 class="compare-card-title">Road</h3>
+            </div>
+            <div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">BEST DISTANCE</div>
+                <div class="compare-attribute-val">Local to regional</div>
+              </div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">TYPICAL LOAD</div>
+                <div class="compare-attribute-val">Parcels to full pallets</div>
+              </div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">SPEED</div>
+                <div class="compare-attribute-val">Flexible daily schedules</div>
+              </div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">BEST SUITED FOR</div>
+                <div class="compare-attribute-val">Door-to-door flexibility</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ocean -->
+          <div class="compare-card">
+            <div>
+              <div class="compare-card-icon"><i class="fa-solid fa-ship"></i></div>
+              <h3 class="compare-card-title">Ocean</h3>
+            </div>
+            <div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">BEST DISTANCE</div>
+                <div class="compare-attribute-val">Intercontinental</div>
+              </div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">TYPICAL LOAD</div>
+                <div class="compare-attribute-val">Containers and bulk</div>
+              </div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">SPEED</div>
+                <div class="compare-attribute-val">Weeks in transit</div>
+              </div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">BEST SUITED FOR</div>
+                <div class="compare-attribute-val">Large, non-urgent cargo</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Air -->
+          <div class="compare-card">
+            <div>
+              <div class="compare-card-icon"><i class="fa-solid fa-plane"></i></div>
+              <h3 class="compare-card-title">Air</h3>
+            </div>
+            <div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">BEST DISTANCE</div>
+                <div class="compare-attribute-val">Global, long haul</div>
+              </div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">TYPICAL LOAD</div>
+                <div class="compare-attribute-val">Time-critical cargo</div>
+              </div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">SPEED</div>
+                <div class="compare-attribute-val">Fastest over long distances</div>
+              </div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">BEST SUITED FOR</div>
+                <div class="compare-attribute-val">Urgent, high-value goods</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rail -->
+          <div class="compare-card">
+            <div>
+              <div class="compare-card-icon"><i class="fa-solid fa-train"></i></div>
+              <h3 class="compare-card-title">Rail</h3>
+            </div>
+            <div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">BEST DISTANCE</div>
+                <div class="compare-attribute-val">Inland corridors</div>
+              </div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">TYPICAL LOAD</div>
+                <div class="compare-attribute-val">High-volume freight</div>
+              </div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">SPEED</div>
+                <div class="compare-attribute-val">Predictable transit times</div>
+              </div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">BEST SUITED FOR</div>
+                <div class="compare-attribute-val">Steady scheduled volumes</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Drone -->
+          <div class="compare-card">
+            <div>
+              <div class="compare-card-icon"><i class="fa-solid fa-crosshairs"></i></div>
+              <h3 class="compare-card-title">Drone</h3>
+            </div>
+            <div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">BEST DISTANCE</div>
+                <div class="compare-attribute-val">Short local hops</div>
+              </div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">TYPICAL LOAD</div>
+                <div class="compare-attribute-val">Lightweight parcels</div>
+              </div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">SPEED</div>
+                <div class="compare-attribute-val">Minutes for short routes</div>
+              </div>
+              <div class="compare-attribute">
+                <div class="compare-attribute-label">BEST SUITED FOR</div>
+                <div class="compare-attribute-val">Hard-to-reach deliveries</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: MODAL SPECIFICATIONS GRID (6 CARDS) -->
+    <section class="service-sec bg-mint" style="padding-top: 2rem;">
+      <div class="container">
+        <span class="section-num-label">MODAL SPECIFICATIONS</span>
+        <p class="service-lead-text" style="margin-bottom: 2rem;">Detailed breakdown & operational profiles</p>
+
+        <div class="specs-cards-grid">
+          <!-- Card 1: Road Freight -->
+          <div class="spec-card">
+            <div class="spec-card-img">
+              <img src="images/road_sunset.webp" alt="Road Freight Truck Sunset" width="600" height="400" loading="lazy">
+            </div>
+            <div class="spec-card-content">
+              <div class="spec-card-icon"><i class="fa-solid fa-truck"></i></div>
+              <h3 class="spec-card-title">Road freight</h3>
+              <p class="spec-card-desc">The workhorse of local delivery. Road freight connects homes, shops and warehouses directly, handling anything from a single parcel to a full pallet. Daily schedules and door-to-door collection make it the most adaptable option.</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Ocean Freight -->
+          <div class="spec-card">
+            <div class="spec-card-img">
+              <img src="images/ocean_freight.webp" alt="Ocean Freight Vessel" width="600" height="400" loading="lazy">
+            </div>
+            <div class="spec-card-content">
+              <div class="spec-card-icon"><i class="fa-solid fa-ship"></i></div>
+              <h3 class="spec-card-title">Ocean freight</h3>
+              <p class="spec-card-desc">Built for volume. Containers move large, heavy or non-urgent cargo across oceans at the lowest cost per unit. Choose it when lead time is measured in weeks and the cargo travels well.</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Air Freight -->
+          <div class="spec-card">
+            <div class="spec-card-img">
+              <img src="images/air_freight.webp" alt="Air Freight Plane" width="600" height="400" loading="lazy">
+            </div>
+            <div class="spec-card-content">
+              <div class="spec-card-icon"><i class="fa-solid fa-plane"></i></div>
+              <h3 class="spec-card-title">Air freight</h3>
+              <p class="spec-card-desc">The fastest way across borders. Air freight suits high-value, urgent or lightweight shipments — documents, medical supplies, electronics — where speed matters more than the price per kilo.</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Rail Transport -->
+          <div class="spec-card">
+            <div class="spec-card-img">
+              <img src="images/rail_transport.webp" alt="Rail Transport Train" width="600" height="400" loading="lazy">
+            </div>
+            <div class="spec-card-content">
+              <div class="spec-card-icon"><i class="fa-solid fa-train"></i></div>
+              <h3 class="spec-card-title">Rail transport</h3>
+              <p class="spec-card-desc">A dependable middle path. Rail carries steady, high-volume loads along fixed inland corridors, offering predictable transit times with a lighter footprint than road over long distances.</p>
+            </div>
+          </div>
+
+          <!-- Card 5: Drone Delivery -->
+          <div class="spec-card">
+            <div class="spec-card-img">
+              <img src="images/drone_delivery.webp" alt="Drone Delivery" width="600" height="400" loading="lazy">
+            </div>
+            <div class="spec-card-content">
+              <div class="spec-card-icon"><i class="fa-solid fa-crosshairs"></i></div>
+              <h3 class="spec-card-title">Drone delivery</h3>
+              <p class="spec-card-desc">Point to point for the small and urgent. Drones bridge short distances for lightweight parcels where a vehicle would add delay or a road simply does not exist, subject to local approvals.</p>
+            </div>
+          </div>
+
+          <!-- Card 6: Last Mile -->
+          <div class="spec-card">
+            <div class="spec-card-img">
+              <img src="images/last_mile.webp" alt="Last Mile Courier" width="600" height="400" loading="lazy">
+            </div>
+            <div class="spec-card-content">
+              <div class="spec-card-icon"><i class="fa-solid fa-box"></i></div>
+              <h3 class="spec-card-title">Last mile</h3>
+              <p class="spec-card-desc">The final handoff. The journey ends at the doorstep with planned routes, delivery updates and a personal touch that completes the trip — whichever mode carried the parcel there.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 08: HOW IT WORKS -->
+    <section class="service-sec bg-teal">
+      <div class="container">
+        <span class="section-num-label teal-theme">08 / HOW IT WORKS</span>
+        <h2 class="service-heading">One connected journey.</h2>
+
+        <div class="journey-steps-grid">
+          <div class="journey-step-card">
+            <div class="journey-step-num">01</div>
+            <div class="journey-step-icon"><i class="fa-regular fa-comment-dots"></i></div>
+            <h3 class="journey-step-title">Tell us about it</h3>
+            <p class="journey-step-desc">Share your cargo, pickup and destination.</p>
+          </div>
+
+          <div class="journey-step-card">
+            <div class="journey-step-num">02</div>
+            <div class="journey-step-icon"><i class="fa-solid fa-route"></i></div>
+            <h3 class="journey-step-title">Plan the route</h3>
+            <p class="journey-step-desc">Find the transport options that fit your shipment.</p>
+          </div>
+
+          <div class="journey-step-card">
+            <div class="journey-step-num">03</div>
+            <div class="journey-step-icon"><i class="fa-solid fa-box-archive"></i></div>
+            <h3 class="journey-step-title">Make the handoff</h3>
+            <p class="journey-step-desc">Coordinate collection through to arrival.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: THE NEXT STEP -->
+    <section class="service-sec bg-dark">
+      <div class="container">
+        <div class="next-step-box">
+          <div>
+            <span class="section-num-label dark-theme">THE NEXT STEP</span>
+            <h2 class="next-step-title">Ready to get moving?</h2>
+          </div>
+          <div>
+            <p class="next-step-desc">Tell us about your cargo and destination. The next step starts with a conversation.</p>
+            <a href="404.html" class="btn-hero-talk">Let's talk ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION BANNER -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-banner">
+          <div class="newsletter-content" style="grid-column: 1 / -1; text-align: center;">
+            <h2>Need Custom Cargo Capabilities?</h2>
+            <p style="max-width: 550px; margin: 0 auto 2rem auto;">
+              Our logistics team designs specialized freight handling for oversized machinery, cold chain pharmaceuticals, and dangerous goods.
+            </p>
+            <button class="btn-subscribe open-quote-modal" style="padding: 1rem 2.5rem; font-size: 1rem;">
+              Request Custom Service ↗
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+      <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top-bar">
+        <a href="index.html" class="logo">
+          <img src="logo_0970.webp" alt="Stackly Logistics" class="site-logo">
+        </a>
+
+        <div class="social-links">
+          <a href="404.html" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="404.html" class="social-icon" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="404.html" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="404.html" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="404.html" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-grid-4col">
+        <div>
+          <div class="footer-col-title">Stackly</div>
+          <p class="footer-col-text">Moving what matters, wherever it needs to go.</p>
+          <a href="contact.html" class="footer-connect-link">📍 Connect with us</a>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Explore</div>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links-list">
+            <li><a href="404.html">Road Freight</a></li>
+            <li><a href="404.html">Ocean Freight</a></li>
+            <li><a href="404.html">Air Freight</a></li>
+            <li><a href="404.html">Drone Delivery</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-contact-item">hello@stackly.com</div>
+          <a href="contact.html" class="footer-connect-link">Get in touch →</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>© 2026 Stackly. All rights reserved.</p>
+        <a href="#" class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to top ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL POPUP -->
+  <div class="modal-overlay" id="quoteModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="closeQuoteModal">&times;</button>
+      <h3 class="modal-title">Get a Shipping Quote</h3>
+      <form class="modal-form" id="quoteForm">
+        <div class="form-group">
+          <label for="quoteName">Full Name</label>
+          <input type="text" id="quoteName" class="form-control" placeholder="John Doe" required>
+        </div>
+        <button type="submit" class="btn-modal-submit">Request Quote ↗</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

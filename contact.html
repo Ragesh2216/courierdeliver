@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Stackly Cargo & Logistics</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- PRELOADER (1.5 SECONDS) -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-spinner"></div>
+      <div class="preloader-logo">
+        <img src="logo_0970.webp" alt="Stackly Logistics" class="site-logo" style="height: 46px;">
+      </div>
+      <p class="preloader-text">Loading Contact Portal...</p>
+    </div>
+  </div>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="logo_0970.webp" alt="Stackly Logistics" class="site-logo">
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="about.html" class="nav-link">About us</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        <li><a href="blogs.html" class="nav-link">Blogs</a></li>
+        <li class="nav-signin-mobile"><a href="login.html" class="btn-signin">Sign in <span>↗</span></a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn-signin nav-signin-desktop">
+          Sign in <span>↗</span>
+        </a>
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- TOP / HERO SECTION -->
+    <section class="service-sec bg-mint" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+      <div class="container">
+        <div class="about-hero-header" style="margin-bottom: 0;">
+          <div>
+            <h1 class="service-heading" style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 0;">Let’s get<br>things moving.</h1>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1.25rem; max-width: 420px;">
+            <i class="fa-solid fa-headset" style="font-size: 2.2rem; color: var(--color-dark-text); opacity: 0.85;"></i>
+            <p class="service-lead-text" style="margin-bottom: 0; font-size: 0.95rem;">Have a delivery in mind or a question on the way? Start here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 / SAY HELLO -->
+    <section class="service-sec bg-soft-teal">
+      <div class="container">
+        <div class="service-grid-2col" style="gap: 4rem; align-items: flex-start;">
+          <!-- Left Column -->
+          <div>
+            <span class="section-num-label"><i class="fa-regular fa-paper-plane"></i> 01 / SAY HELLO</span>
+            <h2 class="service-heading">Tell us what’s<br>on your mind.</h2>
+            <p class="service-lead-text" style="margin-bottom: 2rem;">Give us a few details and open a message in your email app.</p>
+            
+            <div class="service-img-card">
+              <img src="images/contact_team.webp" alt="Logistics Support Team" width="800" height="600" loading="eager">
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Form -->
+          <div style="background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); padding: 2.5rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.06); width: 100%;">
+            <form onsubmit="event.preventDefault(); window.location.href='404.html';">
+              <div class="form-group" style="margin-bottom: 1.25rem;">
+                <label style="font-weight: 700; font-size: 0.9rem; margin-bottom: 0.4rem; display: block;">Your name</label>
+                <input type="text" class="form-control" placeholder="Name" required style="background: #eef7f4; border-color: rgba(0,0,0,0.08);">
+              </div>
+
+              <div class="form-group" style="margin-bottom: 1.25rem;">
+                <label style="font-weight: 700; font-size: 0.9rem; margin-bottom: 0.4rem; display: block;">Email address</label>
+                <input type="email" class="form-control" placeholder="you@example.com" required style="background: #eef7f4; border-color: rgba(0,0,0,0.08);">
+              </div>
+
+              <div class="form-group" style="margin-bottom: 1.25rem;">
+                <label style="font-weight: 700; font-size: 0.9rem; margin-bottom: 0.4rem; display: block;">What’s this about?</label>
+                <select class="form-control" style="background: #eef7f4; border-color: rgba(0,0,0,0.08);">
+                  <option>General enquiry</option>
+                  <option>Shipping Quote</option>
+                  <option>Parcel Tracking</option>
+                  <option>Partnership</option>
+                </select>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 1.75rem;">
+                <label style="font-weight: 700; font-size: 0.9rem; margin-bottom: 0.4rem; display: block;">Your message</label>
+                <textarea class="form-control" rows="4" placeholder="Tell us a little about it..." required style="background: #eef7f4; border-color: rgba(0,0,0,0.08);"></textarea>
+              </div>
+
+              <button type="submit" class="btn-dark-email">Open email <i class="fa-solid fa-paper-plane" style="font-size: 0.85rem;"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 / DIRECT LINE -->
+    <section class="service-sec bg-dark">
+      <div class="container">
+        <span class="section-num-label dark-theme"><i class="fa-regular fa-envelope"></i> 02 / DIRECT LINE</span>
+        <a href="mailto:hello@stackly.com" class="direct-email-link">hello@stackly.com <span>↗</span></a>
+        <p class="service-lead-text" style="opacity: 0.8; margin-bottom: 0;">Prefer to write directly? Send us the details that matter.</p>
+      </div>
+    </section>
+
+    <!-- 03 / DELIVERY QUESTIONS -->
+    <section class="service-sec bg-mint">
+      <div class="container">
+        <span class="section-num-label"><i class="fa-solid fa-map-location-dot"></i> 03 / DELIVERY QUESTIONS</span>
+        <h2 class="service-heading" style="margin-bottom: 2.5rem;">From where to where?</h2>
+
+        <div class="journey-steps-grid">
+          <div class="journey-step-card" style="border-top-color: rgba(17, 28, 24, 0.2);">
+            <div class="journey-step-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <h3 class="journey-step-title">Pickup & destination</h3>
+            <p class="journey-step-desc">Where your journey begins and ends.</p>
+          </div>
+
+          <div class="journey-step-card" style="border-top-color: rgba(17, 28, 24, 0.2);">
+            <div class="journey-step-icon"><i class="fa-solid fa-box"></i></div>
+            <h3 class="journey-step-title">Your parcel</h3>
+            <p class="journey-step-desc">What you need to move, including size and type.</p>
+          </div>
+
+          <div class="journey-step-card" style="border-top-color: rgba(17, 28, 24, 0.2);">
+            <div class="journey-step-icon"><i class="fa-regular fa-clock"></i></div>
+            <h3 class="journey-step-title">Ideal timing</h3>
+            <p class="journey-step-desc">When you'd like your shipment to arrive.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 / WORK TOGETHER -->
+    <section class="service-sec bg-teal">
+      <div class="container">
+        <div class="service-grid-2col">
+          <div>
+            <span class="section-num-label teal-theme"><i class="fa-regular fa-handshake"></i> 04 / WORK TOGETHER</span>
+            <h2 class="service-heading" style="margin-bottom: 0;">Better routes<br>begin together.</h2>
+          </div>
+          <div>
+            <p class="service-lead-text">Exploring a collaboration? We'd love to hear the idea and where it could take us.</p>
+            <a href="mailto:hello@stackly.com" class="btn-underline-link">Start a conversation ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 / NEXT STEPS (HERO IMAGE OVERLAY BANNER) -->
+    <section class="contact-hero-banner">
+      <div class="contact-hero-overlay"></div>
+      <div class="container">
+        <div class="contact-hero-content">
+          <span class="section-num-label dark-theme"><i class="fa-solid fa-boxes-packing"></i> 05 / NEXT STEPS</span>
+          <h2 class="service-heading" style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem;">Ready when<br>you are.</h2>
+          <p class="service-lead-text" style="margin-bottom: 2rem;">Whatever you need to move, the first step is a conversation.</p>
+          <a href="404.html" class="btn-hero-talk">Get in touch ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+      <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top-bar">
+        <a href="index.html" class="logo">
+          <img src="logo_0970.webp" alt="Stackly Logistics" class="site-logo">
+        </a>
+
+        <div class="social-links">
+          <a href="404.html" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="404.html" class="social-icon" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="404.html" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="404.html" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="404.html" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-grid-4col">
+        <div>
+          <div class="footer-col-title">Stackly</div>
+          <p class="footer-col-text">Moving what matters, wherever it needs to go.</p>
+          <a href="contact.html" class="footer-connect-link">📍 Connect with us</a>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Explore</div>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links-list">
+            <li><a href="404.html">Road Freight</a></li>
+            <li><a href="404.html">Ocean Freight</a></li>
+            <li><a href="404.html">Air Freight</a></li>
+            <li><a href="404.html">Drone Delivery</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-contact-item">hello@stackly.com</div>
+          <a href="contact.html" class="footer-connect-link">Get in touch →</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>© 2026 Stackly. All rights reserved.</p>
+        <a href="#" class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Back to top ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL POPUP -->
+  <div class="modal-overlay" id="quoteModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="closeQuoteModal">&times;</button>
+      <h3 class="modal-title">Get a Shipping Quote</h3>
+      <form class="modal-form" id="quoteForm">
+        <div class="form-group">
+          <label for="quoteName">Full Name</label>
+          <input type="text" id="quoteName" class="form-control" placeholder="John Doe" required>
+        </div>
+        <button type="submit" class="btn-modal-submit">Request Quote ↗</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

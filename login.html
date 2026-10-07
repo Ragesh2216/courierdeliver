@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Access - Stackly Cargo & Logistics</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="login-page-body">
+
+  <div class="login-card-container">
+    <!-- Left Hero Image Column -->
+    <div class="login-left-hero" id="loginLeftHero" style="background-image: url('images/login_hero.webp');">
+      <a href="index.html" class="hero-back-link" style="position: absolute; top: 1.5rem; left: 1.5rem; z-index: 5; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(0,0,0,0.35); padding: 0.45rem 0.9rem; border-radius: 20px; backdrop-filter: blur(4px); transition: background 0.2s;">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </a>
+      <div class="login-left-overlay"></div>
+      <div class="login-left-content">
+        <div class="login-hero-icons">
+          <i class="fa-solid fa-box"></i>
+          <i class="fa-solid fa-shield-halved"></i>
+          <i class="fa-solid fa-route"></i>
+        </div>
+        <div class="login-hero-tag">MOVING WHAT MATTERS</div>
+        <h2 class="login-hero-title">Every journey starts somewhere.</h2>
+      </div>
+    </div>
+
+    <!-- Right Form Column -->
+    <div class="login-right-form">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.75rem;">
+        <a href="index.html">
+          <img src="logo_0970.webp" alt="Stackly Logistics" style="height: 40px;">
+        </a>
+        
+      </div>
+
+      <div class="login-header-meta">STACKLY / YOUR ACCOUNT</div>
+      <h1 class="login-title" id="loginTitle">Welcome back.</h1>
+      <p class="login-subtitle" id="loginSubtitle">Sign in to continue with Stackly.</p>
+
+      <form id="authForm">
+        <!-- Role Selector -->
+        <div class="role-selector-group">
+          <label class="role-label">Select Account Role:</label>
+          <div class="role-tabs">
+            <button type="button" class="role-tab-btn active" data-role="user" id="roleUserBtn">
+              <i class="fa-solid fa-user"></i> Client Portal
+            </button>
+            <button type="button" class="role-tab-btn" data-role="admin" id="roleAdminBtn">
+              <i class="fa-solid fa-user-shield"></i> Admin Dispatch
+            </button>
+          </div>
+        </div>
+
+        <!-- Inputs -->
+        <div class="form-group" style="margin-bottom: 0;">
+          <label style="font-weight: 700; font-size: 0.825rem; margin-bottom: 0.35rem; display: block;">Email address</label>
+          <div class="input-with-icon">
+            <i class="fa-regular fa-envelope"></i>
+            <input type="email" id="emailInput" placeholder="you@example.com" required>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 0;">
+          <label style="font-weight: 700; font-size: 0.825rem; margin-bottom: 0.35rem; display: block;">Password</label>
+          <div class="input-with-icon">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="passwordInput" placeholder="Enter your password" required>
+          </div>
+        </div>
+
+        <a href="404.html" class="forgot-pass-link" id="forgotPassLink">Forgot password?</a>
+
+        <button type="submit" class="btn-login-submit" id="submitAuthBtn">Sign in ↗</button>
+
+        <div class="login-divider">or</div>
+
+        <button type="button" class="btn-google-auth" id="googleAuthBtn">
+          <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" alt="Google" width="18">
+          Continue with Google
+        </button>
+
+        <div class="toggle-auth-text" id="toggleAuthWrapper">
+          New to Stackly? <a href="javascript:void(0)" id="toggleAuthBtn">Create an account</a>
+        </div>
+      </form>
+
+    
+    </div>
+  </div>
+
+  <script>
+    let currentMode = 'signin';
+    let selectedRole = 'user';
+
+    const leftHero = document.getElementById('loginLeftHero');
+    const loginTitle = document.getElementById('loginTitle');
+    const loginSubtitle = document.getElementById('loginSubtitle');
+    const submitBtn = document.getElementById('submitAuthBtn');
+    const forgotLink = document.getElementById('forgotPassLink');
+    const toggleWrapper = document.getElementById('toggleAuthWrapper');
+    const roleUserBtn = document.getElementById('roleUserBtn');
+    const roleAdminBtn = document.getElementById('roleAdminBtn');
+    const authForm = document.getElementById('authForm');
+    const googleAuthBtn = document.getElementById('googleAuthBtn');
+
+    // Role selection handler
+    roleUserBtn.addEventListener('click', () => {
+      selectedRole = 'user';
+      roleUserBtn.classList.add('active');
+      roleAdminBtn.classList.remove('active');
+    });
+
+    roleAdminBtn.addEventListener('click', () => {
+      selectedRole = 'admin';
+      roleAdminBtn.classList.add('active');
+      roleUserBtn.classList.remove('active');
+    });
+
+    // Toggle event delegation
+    toggleWrapper.addEventListener('click', (e) => {
+      if (e.target && e.target.id === 'toggleAuthBtn') {
+        if (currentMode === 'signin') {
+          currentMode = 'signup';
+          leftHero.style.backgroundImage = "url('images/login_signup_hero.webp')";
+          loginTitle.textContent = "Join the journey.";
+          loginSubtitle.textContent = "Create an account to stay connected.";
+          submitBtn.textContent = "Create account ↗";
+          forgotLink.style.display = "none";
+          toggleWrapper.innerHTML = 'Already have an account? <a href="javascript:void(0)" id="toggleAuthBtn">Sign in</a>';
+        } else {
+          currentMode = 'signin';
+          leftHero.style.backgroundImage = "url('images/login_hero.webp')";
+          loginTitle.textContent = "Welcome back.";
+          loginSubtitle.textContent = "Sign in to continue with Stackly.";
+          submitBtn.textContent = "Sign in ↗";
+          forgotLink.style.display = "block";
+          toggleWrapper.innerHTML = 'New to Stackly? <a href="javascript:void(0)" id="toggleAuthBtn">Create an account</a>';
+        }
+      }
+    });
+
+    // Form submit -> Store entered email & Route based on selected role
+    authForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const enteredEmail = document.getElementById('emailInput')?.value || 'user@stackly.com';
+      try {
+        localStorage.setItem('stackly_user_email', enteredEmail.trim());
+        localStorage.setItem('stackly_user_role', selectedRole);
+      } catch (err) {}
+      if (selectedRole === 'admin') {
+        window.location.href = 'admin.html';
+      } else {
+        window.location.href = 'user.html';
+      }
+    });
+
+    googleAuthBtn.addEventListener('click', () => {
+      window.location.href = '404.html';
+    });
+  </script>
+</body>
+</html>

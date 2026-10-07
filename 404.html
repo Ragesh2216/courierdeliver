@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Package Off-Route - Stackly Logistics</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    body.page-404 {
+      background-color: var(--color-mint-bg);
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-family);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-404-wrap {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-mint-border);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem 2.5rem;
+      max-width: 540px;
+      width: 90%;
+      text-align: center;
+      box-shadow: var(--shadow-hover);
+      margin: 2rem auto;
+    }
+
+    .icon-404-box {
+      margin: 0 auto 1.5rem auto;
+      width: 120px;
+      height: 120px;
+      background: var(--color-mint-card);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--color-primary-teal);
+      font-size: 3.5rem;
+      box-shadow: 0 8px 24px rgba(83, 195, 166, 0.2);
+    }
+
+    .title-404-number {
+      font-size: clamp(4rem, 8vw, 5.5rem);
+      font-weight: 800;
+      color: var(--color-primary-teal);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .title-404-text {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--color-dark-text);
+      margin-bottom: 1rem;
+    }
+
+    .desc-404 {
+      color: var(--color-muted-text);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 2.2rem;
+    }
+
+    .btn-group-404 {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-404-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.95rem 2rem;
+      background-color: var(--color-primary-teal);
+      color: var(--color-dark-bg);
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: var(--transition-fast);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-404-home:hover {
+      background-color: var(--color-teal-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(83, 195, 166, 0.3);
+    }
+
+    .btn-404-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.95rem 2rem;
+      background-color: var(--color-dark-bg);
+      color: var(--color-white);
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: var(--transition-fast);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-404-back:hover {
+      background-color: #1c2e27;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(17, 28, 24, 0.2);
+    }
+
+    @media (max-width: 480px) {
+      .card-404-wrap {
+        padding: 2.5rem 1.5rem;
+      }
+      .btn-group-404 {
+        flex-direction: column;
+      }
+      .btn-404-home, .btn-404-back {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body class="page-404">
+
+  <!-- PRELOADER (1.5 SECONDS) -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-spinner"></div>
+      <div class="preloader-logo">
+        <img src="logo_0970.webp" alt="Stackly Logistics" class="site-logo" style="height: 46px;">
+      </div>
+      <p class="preloader-text">Locating Waypoint...</p>
+    </div>
+  </div>
+
+  <main class="card-404-wrap">
+    <div class="icon-404-box">
+      📦
+    </div>
+
+    <div class="title-404-number">404</div>
+    <h1 class="title-404-text">Parcel Off-Route!</h1>
+    
+    <p class="desc-404">
+      The shipping route or page waypoint you requested could not be located on our digital tracking radar.
+    </p>
+
+    <!-- ONLY TWO BUTTONS: HOME AND BACK -->
+    <div class="btn-group-404">
+      <a href="index.html" class="btn-404-home">
+        🏠 Go to Home ↗
+      </a>
+      <button onclick="history.back()" class="btn-404-back">
+        ⬅ Go Back
+      </button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
