@@ -2132,9 +2132,21 @@ img {
   font-size: 0.95rem;
 }
 
+.input-with-icon i.toggle-password-btn {
+  left: auto;
+  right: 1.15rem;
+  cursor: pointer;
+  z-index: 2;
+  transition: color var(--transition-fast);
+}
+
+.input-with-icon i.toggle-password-btn:hover {
+  color: var(--color-dark-text);
+}
+
 .input-with-icon input {
   width: 100%;
-  padding: 0.85rem 1rem 0.85rem 2.8rem;
+  padding: 0.85rem 2.8rem 0.85rem 2.8rem;
   border: 1px solid rgba(0,0,0,0.12);
   border-radius: 8px;
   background: #ffffff;
