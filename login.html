@@ -11,6 +11,29 @@
   
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .auth-alert {
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 0.3s ease;
+    }
+    .auth-alert-success {
+      background: #d1e7dd;
+      color: #0f5132;
+      border: 1px solid #badbcc;
+    }
+    .auth-alert-error {
+      background: #f8d7da;
+      color: #842029;
+      border: 1px solid #f5c2c7;
+    }
+  </style>
 </head>
 <body class="login-page-body">
 
@@ -38,8 +61,9 @@
         <a href="index.html">
           <img src="logo_0970.webp" alt="Stackly Logistics" style="height: 40px;">
         </a>
-        
       </div>
+
+      <div id="authAlert" class="auth-alert" style="display: none;"></div>
 
       <div class="login-header-meta">STACKLY / YOUR ACCOUNT</div>
       <h1 class="login-title" id="loginTitle">Welcome back.</h1>
@@ -59,7 +83,34 @@
           </div>
         </div>
 
-        <!-- Inputs -->
+        <!-- Additional Create Account Details Fields (Hidden in Signin Mode) -->
+        <div id="signupOnlyFields" style="display: none;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label style="font-weight: 700; font-size: 0.825rem; margin-bottom: 0.35rem; display: block;">Full Name</label>
+            <div class="input-with-icon">
+              <i class="fa-regular fa-user"></i>
+              <input type="text" id="fullnameInput" placeholder="John Doe">
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 0;">
+            <label style="font-weight: 700; font-size: 0.825rem; margin-bottom: 0.35rem; display: block;">Phone Number</label>
+            <div class="input-with-icon">
+              <i class="fa-solid fa-phone"></i>
+              <input type="tel" id="phoneInput" placeholder="+1 (555) 019-2834">
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 0;">
+            <label style="font-weight: 700; font-size: 0.825rem; margin-bottom: 0.35rem; display: block;">Company / Organization (Optional)</label>
+            <div class="input-with-icon">
+              <i class="fa-solid fa-building"></i>
+              <input type="text" id="companyInput" placeholder="Acme Freight Ltd.">
+            </div>
+          </div>
+        </div>
+
+        <!-- Email Field -->
         <div class="form-group" style="margin-bottom: 0;">
           <label style="font-weight: 700; font-size: 0.825rem; margin-bottom: 0.35rem; display: block;">Email address</label>
           <div class="input-with-icon">
@@ -68,11 +119,23 @@
           </div>
         </div>
 
+        <!-- Password Field -->
         <div class="form-group" style="margin-bottom: 0;">
           <label style="font-weight: 700; font-size: 0.825rem; margin-bottom: 0.35rem; display: block;">Password</label>
           <div class="input-with-icon">
             <i class="fa-solid fa-lock"></i>
             <input type="password" id="passwordInput" placeholder="Enter your password" required>
+          </div>
+        </div>
+
+        <!-- Confirm Password Field (Hidden in Signin Mode) -->
+        <div id="confirmPasswordGroup" style="display: none;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label style="font-weight: 700; font-size: 0.825rem; margin-bottom: 0.35rem; display: block;">Confirm Password</label>
+            <div class="input-with-icon">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" id="confirmPasswordInput" placeholder="Re-enter your password">
+            </div>
           </div>
         </div>
 
@@ -91,8 +154,6 @@
           New to Stackly? <a href="javascript:void(0)" id="toggleAuthBtn">Create an account</a>
         </div>
       </form>
-
-    
     </div>
   </div>
 
@@ -111,6 +172,60 @@
     const authForm = document.getElementById('authForm');
     const googleAuthBtn = document.getElementById('googleAuthBtn');
 
+    const signupOnlyFields = document.getElementById('signupOnlyFields');
+    const confirmPasswordGroup = document.getElementById('confirmPasswordGroup');
+    const fullnameInput = document.getElementById('fullnameInput');
+    const phoneInput = document.getElementById('phoneInput');
+    const confirmPasswordInput = document.getElementById('confirmPasswordInput');
+    const authAlert = document.getElementById('authAlert');
+
+    function showAlert(msg, type = 'success') {
+      authAlert.className = `auth-alert auth-alert-${type}`;
+      authAlert.innerHTML = type === 'success' 
+        ? `<i class="fa-solid fa-circle-check"></i> ${msg}`
+        : `<i class="fa-solid fa-circle-exclamation"></i> ${msg}`;
+      authAlert.style.display = 'flex';
+    }
+
+    function hideAlert() {
+      authAlert.style.display = 'none';
+    }
+
+    function setFormMode(mode) {
+      currentMode = mode;
+      hideAlert();
+
+      if (mode === 'signup') {
+        leftHero.style.backgroundImage = "url('images/login_signup_hero.webp')";
+        loginTitle.textContent = "Join the journey.";
+        loginSubtitle.textContent = "Create an account to stay connected.";
+        submitBtn.textContent = "Create account ↗";
+        forgotLink.style.display = "none";
+        signupOnlyFields.style.display = "block";
+        confirmPasswordGroup.style.display = "block";
+
+        fullnameInput.required = true;
+        phoneInput.required = true;
+        confirmPasswordInput.required = true;
+
+        toggleWrapper.innerHTML = 'Already have an account? <a href="javascript:void(0)" id="toggleAuthBtn">Sign in</a>';
+      } else {
+        leftHero.style.backgroundImage = "url('images/login_hero.webp')";
+        loginTitle.textContent = "Welcome back.";
+        loginSubtitle.textContent = "Sign in to continue with Stackly.";
+        submitBtn.textContent = "Sign in ↗";
+        forgotLink.style.display = "block";
+        signupOnlyFields.style.display = "none";
+        confirmPasswordGroup.style.display = "none";
+
+        fullnameInput.required = false;
+        phoneInput.required = false;
+        confirmPasswordInput.required = false;
+
+        toggleWrapper.innerHTML = 'New to Stackly? <a href="javascript:void(0)" id="toggleAuthBtn">Create an account</a>';
+      }
+    }
+
     // Role selection handler
     roleUserBtn.addEventListener('click', () => {
       selectedRole = 'user';
@@ -128,37 +243,60 @@
     toggleWrapper.addEventListener('click', (e) => {
       if (e.target && e.target.id === 'toggleAuthBtn') {
         if (currentMode === 'signin') {
-          currentMode = 'signup';
-          leftHero.style.backgroundImage = "url('images/login_signup_hero.webp')";
-          loginTitle.textContent = "Join the journey.";
-          loginSubtitle.textContent = "Create an account to stay connected.";
-          submitBtn.textContent = "Create account ↗";
-          forgotLink.style.display = "none";
-          toggleWrapper.innerHTML = 'Already have an account? <a href="javascript:void(0)" id="toggleAuthBtn">Sign in</a>';
+          setFormMode('signup');
         } else {
-          currentMode = 'signin';
-          leftHero.style.backgroundImage = "url('images/login_hero.webp')";
-          loginTitle.textContent = "Welcome back.";
-          loginSubtitle.textContent = "Sign in to continue with Stackly.";
-          submitBtn.textContent = "Sign in ↗";
-          forgotLink.style.display = "block";
-          toggleWrapper.innerHTML = 'New to Stackly? <a href="javascript:void(0)" id="toggleAuthBtn">Create an account</a>';
+          setFormMode('signin');
         }
       }
     });
 
-    // Form submit -> Store entered email & Route based on selected role
+    // Form submit -> Store details & Route
     authForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const enteredEmail = document.getElementById('emailInput')?.value || 'user@stackly.com';
-      try {
-        localStorage.setItem('stackly_user_email', enteredEmail.trim());
-        localStorage.setItem('stackly_user_role', selectedRole);
-      } catch (err) {}
-      if (selectedRole === 'admin') {
-        window.location.href = 'admin.html';
+      const passwordVal = document.getElementById('passwordInput')?.value || '';
+
+      if (currentMode === 'signup') {
+        const confirmVal = confirmPasswordInput.value;
+        if (passwordVal !== confirmVal) {
+          showAlert("Passwords do not match. Please try again.", "error");
+          confirmPasswordInput.focus();
+          return;
+        }
+
+        // Save new user details in localStorage
+        try {
+          localStorage.setItem('stackly_user_fullname', fullnameInput.value.trim());
+          localStorage.setItem('stackly_user_phone', phoneInput.value.trim());
+          localStorage.setItem('stackly_user_company', document.getElementById('companyInput')?.value.trim() || '');
+          localStorage.setItem('stackly_user_email', enteredEmail.trim());
+          localStorage.setItem('stackly_user_role', selectedRole);
+        } catch (err) {}
+
+        // Clear password fields
+        document.getElementById('passwordInput').value = '';
+        confirmPasswordInput.value = '';
+
+        // Switch back to login page mode
+        setFormMode('signin');
+
+        // Pre-fill email and show success message
+        document.getElementById('emailInput').value = enteredEmail;
+        showAlert("Account created successfully! Please sign in with your password.", "success");
+        document.getElementById('passwordInput').focus();
+
       } else {
-        window.location.href = 'user.html';
+        // Sign In mode
+        try {
+          localStorage.setItem('stackly_user_email', enteredEmail.trim());
+          localStorage.setItem('stackly_user_role', selectedRole);
+        } catch (err) {}
+
+        if (selectedRole === 'admin') {
+          window.location.href = 'admin.html';
+        } else {
+          window.location.href = 'user.html';
+        }
       }
     });
 
