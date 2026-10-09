@@ -102,10 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
       y: 30, opacity: 0, duration: 0.7, ease: 'power3.out', clearProps: 'all'
     });
 
-    // Section 12: FAQ Accordion (Staggered Rise)
-    gsap.from('.faq-accordion-container .faq-item', {
-      scrollTrigger: { trigger: '.faq-accordion-container', start: 'top 95%' },
-      y: 25, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out', clearProps: 'all'
+    // Section 12: FAQ Accordion (Container Rise)
+    gsap.from('.faq-section .faq-title, .faq-accordion-container', {
+      scrollTrigger: { trigger: '.faq-section', start: 'top 95%' },
+      y: 20, opacity: 0, duration: 0.6, stagger: 0.15, ease: 'power2.out', clearProps: 'all'
     });
 
     // Section 13: Newsletter Banner (Train Slide Along Track)
@@ -384,8 +384,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = item.querySelector('.faq-body');
 
     if (header && body) {
-      header.addEventListener('click', () => {
+      header.addEventListener('click', (e) => {
+        e.preventDefault();
         const isActive = item.classList.contains('active');
+
         faqItems.forEach(otherItem => {
           if (otherItem !== item) {
             otherItem.classList.remove('active');
@@ -399,15 +401,31 @@ document.addEventListener('DOMContentLoaded', () => {
           body.style.maxHeight = null;
         } else {
           item.classList.add('active');
-          body.style.maxHeight = body.scrollHeight + 'px';
+          body.style.maxHeight = (body.scrollHeight + 30) + 'px';
+        }
+
+        if (typeof ScrollTrigger !== 'undefined') {
+          setTimeout(() => ScrollTrigger.refresh(), 350);
         }
       });
     }
   });
 
+  // Keep open accordion height responsive on mobile resize
+  window.addEventListener('resize', () => {
+    faqItems.forEach(item => {
+      if (item.classList.contains('active')) {
+        const body = item.querySelector('.faq-body');
+        if (body) body.style.maxHeight = (body.scrollHeight + 30) + 'px';
+      }
+    });
+  });
+
   if (faqItems.length > 0) {
     const firstHeader = faqItems[0].querySelector('.faq-header');
-    if (firstHeader) firstHeader.click();
+    if (firstHeader) {
+      setTimeout(() => firstHeader.click(), 150);
+    }
   }
 
   // 8. Testimonial Carousel Slider
@@ -496,6 +514,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const blogNewsletterForm = document.getElementById('blogNewsletterForm');
+  if (blogNewsletterForm) {
+    blogNewsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      window.location.href = '404.html';
+    });
+  }
+
   // 10. Express Tracking Lookup Handler
   window.loadSampleTracking = function(code) {
     const input = document.getElementById('homeTrackingInput');
@@ -547,5 +573,87 @@ document.addEventListener('DOMContentLoaded', () => {
   if (distInput && weightInput) {
     distInput.addEventListener('input', updateEcoCalc);
     weightInput.addEventListener('input', updateEcoCalc);
+  }
+
+  // =========================================================================
+  // 12. SMOOTH SCROLLING ANIMATION SYSTEM (Home, About, Contact, Services, Blogs)
+  // =========================================================================
+  
+  // Custom Smooth Animated Scroll Helper Function with Easing
+  function smoothScrollToTarget(targetElement, duration = 850) {
+    if (!targetElement) return;
+    const header = document.querySelector('.header');
+    const headerHeight = header ? header.offsetHeight : 80;
+    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    function easeInOutCubic(t, b, c, d) {
+      t /= d / 2;
+      if (t < 1) return (c / 2) * t * t * t + b;
+      t -= 2;
+      return (c / 2) * (t * t * t + 2) + b;
+    }
+
+    function step(currentTime) {
+      if (!startTime) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const nextY = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+      window.scrollTo(0, nextY);
+      if (timeElapsed < duration) {
+        requestAnimationFrame(step);
+      } else {
+        window.scrollTo(0, targetPosition);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  // Smooth scroll handler for anchor links across Home, About, Contact, Services, Blogs
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"], button[data-scroll-to]');
+    if (!link) return;
+
+    const targetAttr = link.getAttribute('href') || link.getAttribute('data-scroll-to');
+    if (targetAttr && targetAttr !== '#' && targetAttr.startsWith('#')) {
+      const targetEl = document.querySelector(targetAttr);
+      if (targetEl) {
+        e.preventDefault();
+        smoothScrollToTarget(targetEl, 850);
+
+        // Close mobile overlay menu if active
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        if (mobileToggle && navMenu && navMenu.classList.contains('active')) {
+          mobileToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      }
+    }
+  });
+
+  // Universal Section Smooth Scroll Reveal Animations for Home, About, Contact, Services, Blogs
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+      // Apply smooth reveal if not already animated by timeline
+      if (!section.classList.contains('main-hero-section') && !section.hasAttribute('data-no-gsap')) {
+        gsap.from(section, {
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 92%',
+            toggleActions: 'play none none none'
+          },
+          opacity: 0,
+          y: 30,
+          duration: 0.75,
+          ease: 'power2.out',
+          clearProps: 'all'
+        });
+      }
+    });
   }
 });
